@@ -15,8 +15,9 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Admin User',
                 'username' => 'admin',
-                'password' => Hash::make('admin'),
+                'password' => bcrypt('admin'),
                 'role' => 'admin',
+
             ]
         );
 
@@ -24,7 +25,7 @@ class UserSeeder extends Seeder
         Accounts::create([
             'username' => 'author',
             'name' => 'Author User',
-            'password' => Hash::make('author'),
+            'password' => bcrypt('author'),
             'role' => 'author',
         ]);
     }
