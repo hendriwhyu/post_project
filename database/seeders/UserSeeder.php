@@ -11,8 +11,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         // Create admin user
-        Accounts::updateOrCreate(
-            ['username' => 'admin'],
+        Accounts::create(
             [
                 'name' => 'Admin User',
                 'username' => 'admin',
@@ -22,14 +21,11 @@ class UserSeeder extends Seeder
         );
 
         // Create author user
-        Accounts::updateOrCreate(
-            ['username' => 'author'],
-            [
-                'name' => 'Author User',
-                'username' => 'author',
-                'password' => Hash::make('author'),
-                'role' => 'author',
-            ]
-        );
+        Accounts::create([
+            'username' => 'author',
+            'name' => 'Author User',
+            'password' => Hash::make('author'),
+            'role' => 'author',
+        ]);
     }
 }
