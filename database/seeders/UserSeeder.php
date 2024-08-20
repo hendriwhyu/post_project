@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
         );
 
         // Create author user
-        User::updateOrCreate(
+        Accounts::updateOrCreate(
             ['username' => 'author'],
             [
                 'name' => 'Author User',
