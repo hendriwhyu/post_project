@@ -8,7 +8,7 @@ use App\Http\Controllers\PostController;
 
 
 Route::get('/', [AuthController::class, 'login'])->name('login');
-Route::post('/login', [AuthController::class, 'authenticate']);
+Route::post('/', [AuthController::class, 'authenticate']);
 Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/register', [AuthController::class, 'register'])->name('register');
@@ -33,6 +33,8 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth', 'role:admin'])->gro
 
 Route::prefix('/author')->name('author.')->middleware(['auth', 'role:author'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+    Route::get('/posts', [PostController::class, 'index'])->name('posts');
 
     Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
     Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');

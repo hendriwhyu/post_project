@@ -16,8 +16,11 @@ class PostController extends Controller
         // Fetch all posts from the database and pass them to the view
         $posts = Posts::all();
 
-        return view('admin.post.index', compact('posts'));
-        return view('admin.post.index');
+        if(auth()->user()->role == 'admin') {
+            return view('admin.post.index', compact('posts'));
+        }else if(auth()->user()->role == 'author') {
+            return view('author.post.index', compact('posts'));
+        }
     }
 
     /**

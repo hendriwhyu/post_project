@@ -59,10 +59,10 @@
         </div>
 
         <!-- Nav Item - post -->
-        <li class="nav-item {{ Nav::isRoute('post') }}">
-            <a class="nav-link" href="{{ route('post') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('Post') }}</span>
+        <li class="nav-item {{ Nav::isRoute('author.posts') }}">
+            <a class="nav-link" href="{{ route('author.posts') }}">
+                <i class="fas fa-fw fa-tasks"></i>
+                <span>{{ __('Posts') }}</span>
             </a>
         </li>
 
